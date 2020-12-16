@@ -1,46 +1,61 @@
 const day10 = (data) => {
-  data = data.sort((a,b)=> {return a - b});
+  data = data.sort((a, b) => { return a - b });
+  var lastValue = data[data.length - 1];
+  var fullInput = [0, ...data, lastValue + 3];
   var oneJolt = [];
   var twoJolt = [];
   var threeJolt = [];
-  var arrOfarrangements = [];
-  data.unshift(0);
-  data.push(data[data.length - 1] + 3)
-  // console.log('data :', data);
-  for (var i = 0; i < data.length; i++) {
-    // console.log(data[i]);
-    (data[i + 1] - data[i] == 1) ? (oneJolt.push(data[i])) : null;
-    (data[i + 1] - data[i] == 2) ? (twoJolt.push(data[i])) : null;
-    (data[i + 1] - data[i] == 3) ? (threeJolt.push(data[i])) : null;
+  for (var i = 0; i < fullInput.length; i++) {
+    (fullInput[i + 1] - fullInput[i] == 1) ? (oneJolt.push(fullInput[i])) : null;
+    (fullInput[i + 1] - fullInput[i] == 2) ? (twoJolt.push(fullInput[i])) : null;
+    (fullInput[i + 1] - fullInput[i] == 3) ? (threeJolt.push(fullInput[i])) : null;
 
   }
-  console.log('oneJolt :', oneJolt.length);
-  console.log('twoJolt :', twoJolt.length);
-  console.log('threeJolt :', threeJolt.length);
+  // console.log('oneJolt :', oneJolt.length);
+  // console.log('twoJolt :', twoJolt.length);
+  // console.log('threeJolt :', threeJolt.length);
   return oneJolt.length * threeJolt.length
-  
+
 };
 
 //1890 -> Correct
 
 const day10_part2 = (data) => {
-  data = data.sort((a,b)=> {return a - b});
-  let dataTest = data.slice(0,6);
-  console.log('dataTest :', dataTest);
-  let tempArr_I = [];
-  let tempArr_II = [];
-  let tempArr_III = [];
-  let tempArr_IV = [];
-  let tempArr_V = [];
-  for (var i = 0; i < dataTest.length; i++) {
+  console.log(new Date());
+  data = data.sort((a, b) => { return a - b });
+  // var lastValue = data[data.length - 1];
+  // var fullInput = [0, ...data, lastValue + 3];
+  // let dataTest = [...new Set(data.slice(0, 6))];
+  data.push(data[data.length - 1] + 3)
+  // console.log('dataTest :', dataTest);
+  let countBranches = new Set();
+  const branches = (data, i = 0, cache = {}) => {
+    var count = 0;
+
+    if(i in cache){
+      return cache[i];
+    }
     
+    if (i === (data.length - 1)) {
+      return 1;
+    }
+    if ((data[i + 1] - data[i]) <= 3) {
+      count += branches(data, i + 1, cache)
+    }
+
+    if ((data[i + 2] - data[i]) <= 3) {
+      count +=branches(data, i + 2, cache)
+    }
+    if ((data[i + 3] - data[i]) <= 3) {
+      count += branches(data, i + 3, cache)
+    }
+    cache[i] = count;
+    return count;
   }
-  console.log('tempArr_I :', tempArr_I);
-  console.log('tempArr_II :', tempArr_II);
-  console.log('tempArr_III :', tempArr_III);
-  console.log('tempArr_IV :', tempArr_IV);
-  console.log('tempArr_V :', tempArr_V);
-  
+//28346956187648 -> too low
+
+  console.log('branches :', branches(data));
+  // console.log('countBranches :', countBranches.size);
 };
 
 
