@@ -9,8 +9,8 @@ var dataTest = readTest.toString().split("\r\n");
 // console.log('dataTest :', dataTest);
 
 //Part 1
-console.log(day11(dataTest));
-// console.log(day11(data));
+// console.log(day11(dataTest));
+console.log(day11(data));
 
 
 
