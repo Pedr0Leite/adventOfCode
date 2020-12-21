@@ -1,4 +1,3 @@
-var _ = require("underscore");
 var fs = require("fs");
 var read = fs.readFileSync("day11_2020_input.txt");
 var readTest = fs.readFileSync("day11_2020_input_test.txt");

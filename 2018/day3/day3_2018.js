@@ -1,4 +1,3 @@
-var _ = require("underscore");
 var fs = require("fs");
 var read = fs.readFileSync("day3_2018_input.txt");
 let regex = /(\d+) @ (\d+),(\d+): (\d+)x(\d+)/;
