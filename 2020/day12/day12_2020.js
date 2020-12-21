@@ -8,5 +8,5 @@ var dataTest = readTest.toString().split("\r\n");
 // console.log('dataTest :', dataTest);
 
 //Part 1
-// console.log(day12(dataTest));
-console.log(day12(data));
+console.log(day12(dataTest));
+// console.log(day12(data));
