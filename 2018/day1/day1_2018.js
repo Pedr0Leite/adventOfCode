@@ -1,4 +1,3 @@
-var _ = require('underscore');
 var fs = require('fs');
 var read = fs.readFileSync("day1_2018_input.txt");
 var data = read.toString().split(",").map(Number);

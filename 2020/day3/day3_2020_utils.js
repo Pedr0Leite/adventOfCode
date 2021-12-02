@@ -27,7 +27,7 @@ const part1 = (x) => {
   return values.reduce((curr, acc) => (acc === "#" ? curr + 1 : curr), 0);
 };
 //-------------------------------- PART 2 ----------------------------
-const part2 = (x) => {
+const day3 = (x) => {
   //slop1 - 1|1---------------------
   let indexA = 0;
   let lineNumberA = 0;
@@ -157,7 +157,7 @@ const part2 = (x) => {
 };
 
 //another way of doing Part 1 and 2
-const part2_II = (dataset) => {
+const day3_II = (dataset) => {
   var slops = [[1], [3], [5], [7], [1, 2]];
   const trees = ([x, slop = 1]) => 
     dataset.filter((line, index) =>
@@ -191,6 +191,6 @@ const part2_II = (dataset) => {
 
 module.exports = {
   part1,
-  part2,
-  part2_II,
+  day3,
+  day3_II,
 };
