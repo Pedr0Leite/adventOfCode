@@ -37,6 +37,24 @@ return finalValue
 }
 
 const part2 = (data) =>{
+//most common number
+const gamaRate = {};
+//lest common number
+const epsilonRate = {};
+
+// data.forEach(x =>{
+
+// })
+let tempCount = {zero:0, one:0};
+let counter = 0;
+
+console.log(data[0].split('').reduce((prev, curr) =>{
+    var count = prev[curr] || 0;
+    prev[curr] = count + 1;
+    return prev;
+}, {}))
+console.log(data[0])
+
 
 }
 
