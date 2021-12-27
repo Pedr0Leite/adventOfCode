@@ -5,7 +5,7 @@ var part2 = require('./day4_2021_utils').part2;
 var data = read.toString().split("\r\n");
 
 // part 1
-part1(data);
+// part1(data);
 console.log('part1 :', part1(data));
 
 // //part2
